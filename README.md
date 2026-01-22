@@ -1,28 +1,41 @@
 # Containerized TensorFlow GPU development environment
 
-A containerized TensorFlow AI/ML development environment with NVIDIA GPU support. This repository provides a consistent development environment using VS Code Dev Containers, eliminating the need for manual environment setup.
+A containerized TensorFlow AI/ML development environment with NVIDIA GPU support. This repository provides a consistent development environment with wide GPU compatibility using VS Code Dev Containers, eliminating the need for manual environment setup. It provides the following:
 
-The underlying docker container is based on NVIDIA's TensorFlow 24.06 container. For details see:
+- CUDA 12.5
+- cuDNN 9.1
+- Python 3.10
+- TensorFlow 2.16
+- Keras 3.3
+- NumPy 1.24
+- Pandas 2.2
+- Scikit-learn 1.4
+- SciPy 1.13
+- Matplotlib 3.10
+- jupyterlab 2.3
+
+And much more - the underlying docker container is a lightly customized version of NVIDIA's official TensorFlow 24.06 container. For full details see:
 
 - George's TensorFlow 2.16 container on DockerHub: [gperdrizet/tensorflow-gpu](https://hub.docker.com/r/gperdrizet/tensorflow-gpu)
 - NVIDIA's [TensorFlow Release 24.06](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel-24-06.html)
 
-The container needs Docker and a compatible NVIDIA driver installed. It should support GPUs back to Pascal on both Windows and Linux (MacOS users should be able to run it without GPU support - see below). 
+The container needs Docker and a compatible NVIDIA driver installed to run. It should support NVIDIA GPUs back to Pascal on both Windows and Linux (MacOS users should be able to run it without GPU support - see below). 
 
-## Prerequisites
+## 1. Prerequisites
 
-Before you can use this development container, you need to install:
+Before you can use this development container, you need to have:
 
-1. **NVIDIA driver >=545** (slightly older drivers may work - try it before you make major changes to your host system)
-2. **Docker** (see platform-specific instructions below)
-2. **Visual Studio Code** - [Download here](https://code.visualstudio.com)
-3. **Dev Containers extension** - Install from the VS Code Extensions marketplace (`ms-vscode-remote.remote-containers`)
+1. **A Pascal or later NVIDIA GPU**
+2. **NVIDIA driver >=545** (slightly older drivers may work - try it before you make major changes to your host system)
+3. **Docker** (see platform-specific instructions below)
+4. **Visual Studio Code** - [Download here](https://code.visualstudio.com)
+5. **Dev Containers extension** - Install from the VS Code Extensions marketplace (`ms-vscode-remote.remote-containers`)
 
 ---
 
-## Docker installation instructions
+## 2. Docker installation instructions
 
-### Windows
+### 2.1. Windows
 
 Full installation documentation here: [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install)
 
@@ -76,51 +89,17 @@ Full installation documentation here: [Install Docker Desktop on Windows](https:
 
 ---
 
-### Linux
+### 2.2. Linux
 
 For Linux set-up instructions, refer to [Install Docker Desktop on Linux](https://docs.docker.com/desktop/setup/install/linux).
 
 > **Note for GPU support:** To use GPU acceleration on Linux, you'll need an NVIDIA GPU with updated drivers and the [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
-### MacOS
-
-Apple dropped NVIDIA support around 2014, but you can still use this container to run TensorFlow on CPU only. See full docker setup documentation here: [Install Docker Desktop on Mac](https://docs.docker.com/desktop/setup/install/mac-install)
-
-1. **Check system requirements**
-   - MacOS 14 (Sonoma) or newer
-   - At least 4 GB of RAM
-
-2. **Download Docker Desktop**
-   - Download the appropriate version:
-     - **Apple Silicon (M1/M2/M3):** Download "Docker Desktop for Mac with Apple silicon"
-     - **Intel Mac:** Download "Docker Desktop for Mac with Intel chip"
-
-3. **Install Docker Desktop**
-   - Open the downloaded `.dmg` file
-   - Drag the Docker icon to the Applications folder
-   - Launch Docker from the Applications folder
-   - Select 'Use recommended settings'
-   - Grant any permissions requested during first launch
-
-4. **Start Docker Desktop**
-   - Click the Docker icon in the Applications folder
-   - Wait for Docker to fully start (check the whale icon in the menu bar)
-
-5. **Verify installation**
-   - Open Terminal and run:
-     ```bash
-     docker --version
-     ```
-
-    The command should complete without error.
-
-> **Note:** Current Apple hardware does not use NVIDIA GPUs. Using this setup, TensorFlow will run in CPU only mode on MacOS. If you are feeling brave, you can run TensorFlow on Apple Silicon GPUs - see here: [Get started with tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin). But that's a whole other ball of wax...
-
 ---
 
-## Getting started
+## 3. Getting started
 
-Once you have a current NVIDIA driver (>=545) and Docker with GPU support. Starting a CUDA/TensorFlow development envronment from this repository is easy. Use it like a template to start new projects:
+Once you have a current NVIDIA driver (>=545) and Docker with GPU support. Starting a CUDA/TensorFlow development environment from this repository is easy. Use it like a template to start new projects:
 
 1. **Fork this repository** to create your own copy:
    - Click the **"Fork"** button in the top-right corner of this repository's GitHub page
@@ -150,7 +129,7 @@ Once you have a current NVIDIA driver (>=545) and Docker with GPU support. Start
 
 7. **Start coding!** Open and run `notebooks/test.ipynb` to verify your environment is working.
 
-### Keeping Your Fork Updated
+## 4. Keeping Your Fork Updated
 
 To sync your fork with the latest changes from this original repository:
 
