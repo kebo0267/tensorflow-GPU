@@ -15,6 +15,23 @@ Based on [NVIDIA's TensorFlow 24.06 container](https://docs.nvidia.com/deeplearn
 
 > **No NVIDIA GPU?** Use the CPU version instead: [gperdrizet/tensorflow-CPU](https://github.com/gperdrizet/tensorflow-CPU)
 
+## Project Structure
+
+```
+tensorflow-GPU/
+├── .devcontainer/
+│   └── devcontainer.json       # Dev container configuration
+├── data/                       # Store datasets here
+├── logs/                       # TensorBoard logs (auto-watched)
+├── models/                     # Saved model files
+├── notebooks/
+│   ├── environment_test.ipynb  # Verify your setup
+│   └── functions/              # Helper modules for notebooks
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
 ## Requirements
 
 - **NVIDIA GPU** (Pascal or newer) with driver ≥545
@@ -50,13 +67,9 @@ Check your GPU's compute capability: [NVIDIA CUDA GPUs](https://developer.nvidia
    git clone https://github.com/<your-username>/tensorflow-GPU.git
    ```
 
-3. **Open in VS Code:**
-   ```bash
-   cd tensorflow-GPU
-   code .
-   ```
+3. **Open VS Code**
 
-4. **Reopen in Container** when prompted (or press `F1` → "Dev Containers: Reopen in Container")
+4. **Open Folder in Container** from the VS Code command pallet (Ctrl+shift+p), start typing `Open Folder in`...
 
 5. **Verify** by running `notebooks/environment_test.ipynb`
 
