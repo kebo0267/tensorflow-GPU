@@ -9,7 +9,7 @@ A ready-to-use deep learning environment with NVIDIA GPU support for VS Code. In
 | **GPU** | CUDA 12.5, cuDNN 9.1 |
 | **ML** | PyTorch 2.10, TensorFlow 2.16, Keras 3.3, Scikit-learn 1.4 |
 | **Python** | Python 3.10, NumPy 1.24, Pandas 2.2, Matplotlib 3.10 |
-| **Tools** | JupyterLab, TensorBoard |
+| **Tools** | JupyterLab, TensorBoard, Optuna |
 
 Based on [NVIDIA's TensorFlow 24.06 container](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel-24-06.html).
 
@@ -56,9 +56,11 @@ This environment requires an NVIDIA GPU with **compute capability 6.0+** (Pascal
 
 Check your GPU's compute capability: [NVIDIA CUDA GPUs](https://developer.nvidia.com/cuda-gpus)
 
-> **Note:** This environment is configured for broad GPU compatibility, supporting Pascal and newer architectures. If you have a recent GPU (Ada Lovelace, Hopper, or Blackwell), you may benefit from using a newer CUDA version to access the latest performance optimizations and features. Consider setting up a custom environment with an updated [NVIDIA TensorFlow container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow) to take full advantage of your hardware.
+> **Note:** This environment is configured for broad GPU compatibility, supporting Pascal and newer architectures. If you have a more recent GPU (e.g. Ada Lovelace, Hopper, or Blackwell), you may benefit from using a newer CUDA version to access the latest performance optimizations and features. Consider setting up a custom environment with an updated [NVIDIA TensorFlow container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow) to take full advantage of your hardware.
 
 ## Quick start
+
+To quickly try the container environment out on your system do the following. If you want to use is for your own project see below.
 
 1. **Fork** this repository (click "Fork" button above)
 
@@ -142,6 +144,12 @@ To launch TensorBoard:
 3. Select the `logs/` directory when prompted
 
 TensorBoard will open in a new tab within VS Code. Place your training logs in the `logs/` directory.
+
+## Optuna dashboard
+
+Access the Optuna dashboard by right clicking on your Optuna database file and selecting 'Open in Optuna Dashboard'.
+
+> Note: the default ports for TensorBoard and Optuna are published by the container, so you can also run them via their respective built in web servers and they will be avalible on the host's localhost.
 
 ## Keeping your fork updated
 
